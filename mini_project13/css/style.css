@@ -28,3 +28,27 @@ body {
   background-color: #fff;
   border-radius: 0.5em;
 }
+#message {
+  width: 100%;
+  text-align: center;
+}
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.container button {
+  border: 0.2em solid #1dae94;
+  padding: 0.8em 1.2em;
+  border-radius: 0.3em;
+  outline: none;
+  margin: 2em;
+}
+#start-timer {
+  background-color: #1dae94;
+  color: #fff;
+}
+#stop-timer {
+  color: #1dae94;
+  background-color: #fff;
+}
