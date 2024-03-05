@@ -26,5 +26,43 @@ window.onload = initializeTimer = () => {
   }
   [seconds, minutes] = [0, 0];
   timerRef.innerHTML = `00:00`;
-  if ()
+  if (timerRef.classList.contains("hide")) {
+    timerRef.classList.remove("hide");
+  }
+  container.classList.add("hide");
+  if(stopButton.classList.contains("hide")) {
+    stopButton.classList.remove("hide");
+    restartButton.classList.remove("hide");
+  }
+  message.innerText = "";
+  startTimer();
+}
+
+window.onmousemove = initializeTimer;
+window.onclick = initializeTimer;
+window.ontouchstart = initializeTimer;
+window.onkeydown = initializeTimer;
+
+stopButton.addEventListener("click", () => {
+  clearInterval(interval);
+  [seconds, minutes] = [0, 0];
+  timerRef.innerHTML = `00:00`;
+  stopButton.classList.add("hide");
+  restartButton.classList.add("hide");
+  timerRef.classList.add("hide");
+  message.innerText = "Exited Successfully";
+});
+
+function displayTimer() {
+  seconds++;
+  let m = minutes < 10 ? "0" + minutes : minutes;
+  let s = seconds < 10 ? "0" + seconds : seconds;
+  timerRef.innerHTML = `${m}:${s}`;
+  if(seconds == 5) {
+    inactive = true;
+    seconds = 0;
+    clearInterval(interval);
+    message.innerText = "You have been inactive";
+    container.classList.remove("hide");
+  }
 }
